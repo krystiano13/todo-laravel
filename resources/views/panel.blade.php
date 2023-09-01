@@ -3,9 +3,10 @@
 @section('content')
     @auth
      <main>
-        <form method="POST" class="taskCreator">
+        <form method="POST" class="taskCreator wrapper d-flex flex-column justify-content-center align-items-center">
             <input type="text" placeholder="Name of task" name="content" />
-            <button type="submit">Add</button>
+            <button class="taskbtn btn btn-primary" type="submit">Add</button>
+            <button type="button" class="cancelbtn btn btn-danger">Cancel</button>
         </form>
         <form method="POST" action="/logout">
             <h1>Current User: {{ auth() -> user()['name'] }}</h1>
@@ -17,12 +18,12 @@
             <section class="task d-flex justify-content-around align-items-center p-3">
                 <p class="taskTitle">{{ $task['content'] }}</p>
                 <div class="taskButtons">
-                    <button class="btn btn-warning" id="edit">Edit</button>
-                    <button class="btn btn-success" id="delete">End</button>
+                    <button id={{ $task['id'] }} class="edBtn btn btn-warning" id="edit">Edit</button>
+                    <button id={{ $task['id'] }} class="enBtn btn btn-success" id="delete">End</button>
                 </div>
             </section>
             @endforeach
-            <section class="task taskBtn btn btn-secondary taskBtn d-flex justify-content-around align-items-center p-3">
+            <section id="add" class="task taskBtn btn btn-secondary taskBtn d-flex justify-content-around align-items-center p-3">
                <p>+</p>
             </section>
         </div>
