@@ -17,7 +17,7 @@ class TaskController extends Controller
     }
 
     public function add(Request $request) {
-        if(!auth() -> check()) return;
+        if(!auth() -> check()) return redirect('/');
 
         $fields = $request -> validate([
             'content' => ['required', 'min:1']
@@ -33,5 +33,19 @@ class TaskController extends Controller
         );
 
         return redirect('/panel');
+    }
+
+    public function edit(int $id, Request $request) {
+        if(!auth() -> check() || !isset($id)) return redirect('/');
+
+       $fields = $request -> validate([
+            'content' => 'required'
+       ]); 
+
+       $fields['content'] = strip_tags($fields['content']);
+
+       Task::where('id', $id)->update(['content' => $fields['content']]);
+
+       return redirect('/panel');
     }
 }

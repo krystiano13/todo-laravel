@@ -16,3 +16,5 @@ Route::post('/register',[UserController::class, 'register']);
 Route::post('/login',[UserController::class,'login']);
 Route::post('/logout',[UserController::class,'logout']);
 Route::post('/add/',[TaskController::class, 'add']);
+
+Route::put('/edit/{id}',[TaskController::class, 'edit']);
