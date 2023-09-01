@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -33,12 +34,20 @@ class UserController extends Controller
         }
     }
 
-    public function login(Request $request, Validator $validator) {
-        $fields = $request -> all();
-
-        $validator = Validator::make($fields,[
-            'username' => ['required'],
+    public function login(Request $request) {
+        $fields = $request -> validate([
+            'name' => ['required'],
             'password' => ['required']
         ]);
+
+        if(auth() -> attempt(['name' => $fields['name'], 'password' => $fields['password']])) {
+            return redirect('/panel');
+        }
+     
+    }
+
+    public function logout() {
+        auth() -> logout();
+        return redirect('/');
     }
 }

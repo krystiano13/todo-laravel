@@ -1,8 +1,9 @@
 @extends('layout.layout')
 
 @section('content')
-    <form class="Form wrapper d-flex flex-column align-items-center justify-content-center">
-        <input type="text" placeholder="username" name="username" />
+    <form method="POST" action="/login" class="Form wrapper d-flex flex-column align-items-center justify-content-center">
+        @csrf
+        <input type="text" placeholder="username" name="name" />
         <input type="password" placeholder="password" name="password" />
         <button class="FormButton btn btn-primary" type="submit">Login</button>
     </form> 
