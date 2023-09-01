@@ -8,23 +8,35 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function register(Validator $validator, Request $request) {
-        $validator = Validator::make($request->all(),[
-            'username' => ['required', 'unique:users', 'min:3','max: 64'],
+    public function register(Request $request) {
+        $fields = $request -> validate([
+            'name' => ['required', 'unique:users', 'min:3','max: 64'],
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8']
         ]);
 
-        if($validator -> fails()) {
-            return view('/register',['err' => 'username, email or password is incorrect']);
+        if($fields['password'] !== $fields['password2']) {
+            return redirect('/registerView');
         }
 
         else {
-            $fields = $request -> all();
             $fields['password'] = bcrypt($fields['password']);
-            $user = User::create($fields);
+            $user = User::create([
+                'name' => $fields['name'],
+                'email' => $fields['email'],
+                'password' => $fields['password']
+            ]);
             auth() -> login($user);
             return redirect('/panel');
         }
+    }
+
+    public function login(Request $request, Validator $validator) {
+        $fields = $request -> all();
+
+        $validator = Validator::make($fields,[
+            'username' => ['required'],
+            'password' => ['required']
+        ]);
     }
 }

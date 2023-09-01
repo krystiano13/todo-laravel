@@ -19,6 +19,7 @@ body {
 .MainButtons {
     width: 20%;
     height: 40%;
+    padding : 1rem;
 }
 
 .MainButtons .mbtn {
