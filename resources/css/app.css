@@ -30,6 +30,16 @@ main .todos {
     margin-right : 2rem;
 }
 
+.todos .taskBtn p {
+    transition: color 250ms;
+    color : black;
+}
+
+.todos .taskBtn:hover p {
+    color : white;
+}
+
+
 .task p {
     margin : 0;
     font-weight: 500;
