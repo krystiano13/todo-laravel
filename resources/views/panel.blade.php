@@ -4,6 +4,7 @@
     @auth
      <main>
         <form method="POST" class="taskCreator wrapper d-flex flex-column justify-content-center align-items-center">
+            @csrf
             <input type="text" placeholder="Name of task" name="content" />
             <button class="taskbtn btn btn-primary" type="submit">Add</button>
             <button type="button" class="cancelbtn btn btn-danger">Cancel</button>
