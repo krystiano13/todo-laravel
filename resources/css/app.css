@@ -1,0 +1,25 @@
+body {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+
+    width : 100vw;
+    height : 100vh;
+}
+
+.MainButtons {
+    width : 20%;
+    height : 40%;
+    min-width : 16rem;
+    min-height: 20rem;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: whitesmoke;
+}
+
+.MainButtons .mbtn {
+    width : 50%;
+    padding : 1rem;
+    border-radius: 1rem;
+    font-size : 1.3rem;
+}
