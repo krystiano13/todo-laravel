@@ -25,9 +25,13 @@
             @foreach ($tasks as $task)
             <section class="task d-flex justify-content-between align-items-center p-3">
                 <p class="taskTitle">{{ $task['content'] }}</p>
-                <div class="taskButtons">
+                <div class="taskButtons d-flex">
                     <button data-edit="{{ $task['content'] }}" id={{ $task['id'] }} class="edBtn btn btn-warning" id="edit">Edit</button>
-                    <button id={{ $task['id'] }} class="enBtn btn btn-success" id="delete">End</button>
+                    <form action="/delete/{{ $task['id'] }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="enBtn btn btn-success" id="delete">End</button>
+                    </form>                 
                 </div>
             </section>
             @endforeach

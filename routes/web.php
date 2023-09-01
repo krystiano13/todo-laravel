@@ -18,3 +18,4 @@ Route::post('/logout',[UserController::class,'logout']);
 Route::post('/add/',[TaskController::class, 'add']);
 
 Route::put('/edit/{id}',[TaskController::class, 'edit']);
+Route::delete('/delete/{id}',[TaskController::class, 'delete']);

@@ -48,4 +48,10 @@ class TaskController extends Controller
 
        return redirect('/panel');
     }
+
+    public function delete(int $id) {
+        if(!auth() -> check() || !isset($id)) return redirect('/');
+        Task::where('id', $id)->delete();
+        return redirect('/panel');
+    }
 }
