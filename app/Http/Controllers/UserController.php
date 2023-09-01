@@ -12,10 +12,12 @@ class UserController extends Controller
         $fields = $request -> validate([
             'name' => ['required', 'unique:users', 'min:3','max: 64'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8']
+            'password' => ['required', 'min:8'],
+            'password2' => ['required']
         ]);
 
         if($fields['password'] !== $fields['password2']) {
+            session() -> flash('err',"Passowrds are not same !");
             return redirect('/registerView');
         }
 

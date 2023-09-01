@@ -19,7 +19,7 @@ body {
 .MainButtons {
     width: 20%;
     height: 40%;
-    padding : 1rem;
+    padding : 2rem;
 }
 
 .MainButtons .mbtn {
@@ -29,9 +29,16 @@ body {
     font-size: 1.3rem;
 }
 
+
 .Form {
     width: 18%;
     height: 50%;
+}
+
+.Form .error {
+    color : rgb(180, 17, 17);
+    font-weight: 500;
+    max-width: 80%;
 }
 
 .Form input,

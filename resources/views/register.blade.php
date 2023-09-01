@@ -11,5 +11,8 @@
         @foreach ($errors -> all() as $error)
             <p class="error">{{ $error }}</p>
         @endforeach
+        @if (session() -> exists('err'))
+             <p class="error">{{ session('err') }}</p>
+        @endif
     </form> 
 @endsection
