@@ -7,16 +7,18 @@ body {
     height: 100vh;
 }
 
-.MainButtons {
-    width: 20%;
-    height: 40%;
+.wrapper {
     min-width: 16rem;
-    min-height: 20rem;
+    min-height: 24rem;
     border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background-color: whitesmoke;
-
     animation: mbtnApp 300ms ease-in-out;
+}
+
+.MainButtons {
+    width: 20%;
+    height: 40%;
 }
 
 .MainButtons .mbtn {
@@ -24,6 +26,19 @@ body {
     padding: 1rem;
     border-radius: 1rem;
     font-size: 1.3rem;
+}
+
+.Form {
+    width: 18%;
+    height: 50%;
+}
+
+.Form input,
+.Form button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 65%;
+    padding: 0.35rem;
 }
 
 @keyframes mbtnApp {
